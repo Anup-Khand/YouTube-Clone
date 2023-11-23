@@ -16,7 +16,7 @@ const Sidbar = ({ isToggle }) => {
       icon: <SiYoutubeshorts />,
     },
     {
-      path: "/Subcriptions",
+      path: "/Subcription",
       name: "Subscriptions",
       icon: <Subscriptions />,
     },
