@@ -1,1 +1,1 @@
-<h2>Fisrt Clone App</h2>
+<h2>First Clone App</h2>
