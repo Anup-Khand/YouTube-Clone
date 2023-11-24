@@ -8,16 +8,16 @@
 .container {
   display: flex;
   align-items: center;
-  margin-bottom:1% ;
+  margin-bottom: 0.8%;
   color: var(--text-color);
-width: 100%;
+  width: 100%;
   height: 56px;
 }
 .navbar-container {
   z-index: 2;
   position: fixed;
-    background-color: var(--background-color);
-  width: 95%;
+  background-color: var(--background-color);
+  width: 100%;
   /* margin: 0 2.5rem 0 1.3rem; */
   display: flex;
   justify-content: space-between;
@@ -121,6 +121,7 @@ form {
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
+  margin-right: 3.5rem;
 }
 .cancel-button {
   position: absolute;
@@ -164,5 +165,37 @@ form > .search-button {
 
   &:hover:not(:last-child) {
     background-color: var(--hover-color);
+  }
+}
+/*Responsive*/
+
+@media only screen and (max-width: 775px) {
+  .navbar-right {
+    gap: 1.2rem;
+  }
+}
+@media only screen and (max-width: 720px) {
+  .navbar-left {
+    font-size: 1rem;
+  }
+  .navbar-input {
+    padding: 5px;
+    font-size: 0.625rem;
+    border: none;
+    margin: 0 -1px;
+
+    white-space: nowrap;
+  }
+  .navbar-right {
+    gap: 1rem;
+  }
+  .form-input {
+    height: 2.1rem;
+  }
+  .form-input1 {
+    height: 2.1rem;
+  }
+ form> .search-button {
+    padding: 4px 8px;
   }
 }

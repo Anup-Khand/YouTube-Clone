@@ -1,5 +1,14 @@
 import "./Sider.css";
-import { Home, Subscriptions } from "@mui/icons-material";
+import {
+  Home,
+  Subscriptions,
+  Whatshot,
+  MusicNote,
+  SportsCricket,
+  History,
+  WatchLater,
+  Download,
+} from "@mui/icons-material";
 import { SiYoutubeshorts } from "react-icons/si";
 import { NavLink } from "react-router-dom";
 // eslint-disable-next-line react/prop-types
@@ -21,15 +30,54 @@ const Sidbar = ({ isToggle }) => {
       icon: <Subscriptions />,
     },
   ];
+  const Listitem1 = [
+    {
+      path: "/Trending",
+      name: "Trending",
+      icon: <Whatshot />,
+    },
+    {
+      path: "/Gaming",
+      name: "Gaming",
+      icon: <SiYoutubeshorts />,
+    },
+    {
+      path: "/Music",
+      name: "Music",
+      icon: <MusicNote />,
+    },
+    {
+      path: "/Sport",
+      name: "Sport",
+      icon: <SportsCricket />,
+    },
+  ];
+  const Listitem2 = [
+    {
+      path: "/History",
+      name: "History",
+      icon: <History />,
+    },
+    {
+      path: "/WatchLater",
+      name: "Watch Later",
+      icon: <WatchLater />,
+    },
+    {
+      path: "/Download",
+      name: "Download",
+      icon: <Download />,
+    },
+  ];
   return (
     <div className="sidebar-container">
-      <div className="menu-item1">
+      <div className="menu-item">
         {Listitem.map((item, i) => (
           <NavLink
             key={i}
             to={item.path}
             className={isToggle ? "sidebar-button1" : "sidebar-button"}
-            activeClassName="active"
+            activeclassname="active"
           >
             <span>{item.icon} </span>
             {item.name}
@@ -37,8 +85,35 @@ const Sidbar = ({ isToggle }) => {
         ))}
       </div>
       <hr />
-      <div></div>
-      <div></div>
+      <div className="menu-item">
+        <p className="menu-item-title">Explore</p>
+        {Listitem1.map((item, i) => (
+          <NavLink
+            key={i}
+            to={item.path}
+            className={isToggle ? "sidebar-button1" : "sidebar-button"}
+            activeclassname="active"
+          >
+            <span>{item.icon} </span>
+            {item.name}
+          </NavLink>
+        ))}
+      </div>
+      <hr/>
+      <div className="menu-item">
+        <p className="menu-item-title">You</p>
+        {Listitem2.map((item, i) => (
+          <NavLink
+            key={i}
+            to={item.path}
+            className={isToggle ? "sidebar-button1" : "sidebar-button"}
+            activeclassname="active"
+          >
+            <span>{item.icon} </span>
+            {item.name}
+          </NavLink>
+        ))}
+      </div>
     </div>
   );
 };

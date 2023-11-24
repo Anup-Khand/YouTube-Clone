@@ -1,5 +1,6 @@
+import './Genre.css'
 const Genre = () => {
-  return <div>Genre</div>;
+  return <div className="GenreContainer">Genre</div>;
 };
 
 export default Genre;

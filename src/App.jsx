@@ -19,7 +19,7 @@ const handleToggle = () => {
           <Sidbar isToggle={istoggle} />
         </div>
 
-        <div className="VideoContainerWrapper">
+        <div className={istoggle?"VideoContainerWrapper1":"VideoContainerWrapper"}>
           <Genre />
           <VideoContainer />
         </div>
