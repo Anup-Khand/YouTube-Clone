@@ -10,10 +10,10 @@ import logo from "../../assets/youtubelogo.svg";
 const Navbar = ({ onToggle }) => {
   const [isFocused, setIsFocused] = useState(false);
   const handlefocus = () => {
-    setIsFocused(!false);
+    setIsFocused(!isFocused);
   };
   const handleBlur = () => {
-    setIsFocused(!false);
+    setIsFocused(!isFocused);
   };
   const [IsOpen, setIsOpen] = useState(false);
   const handletoggle = () => {
@@ -49,9 +49,6 @@ const Navbar = ({ onToggle }) => {
                 {isFocused && (
                   <button
                     className="cancel-button"
-                    onClick={() => {
-                      console.log("hello");
-                    }}
                   >
                     X
                   </button>

@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic);
+
 * {
   margin: 0;
   padding: 0;
@@ -14,4 +15,5 @@ body {
   margin: 0 2.5rem 0 1.3rem;
   color: #ffffff;
   background-color: #0f0f0f;
+  height: 100%;
 }
