@@ -8,12 +8,12 @@
   width: 100%;
   padding: 1rem 1.3rem;
   grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-  gap: 1%;
   border-radius: 10px;
   /* border: 1px solid wheat; */
 }
-.video.wrapper {
-  height: 100%;
+
+.video-wrapper {
+  width: 100%;
 }
 .video-container > p {
   text-align: center;
@@ -23,8 +23,8 @@
   justify-content: center;
   align-items: center;
   margin-top: 20%;
-  height:100%;
-  height:max-content /* Optionally set the height based on your layout requirements */
+  height: 100%;
+  height: max-content; /* Optionally set the height based on your layout requirements */
 }
 
 .loading-container > p {

@@ -1,0 +1,49 @@
+.videoMetaData{
+    padding: 3px;
+    width: 100%;
+}
+.metadata-title{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5%;
+}
+.metadata-details{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2%;
+}
+.channel-img{
+     width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}
+.metadata-channel{
+    gap: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.video-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.video-button>span{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.btn{
+    font-size: 1rem;
+    padding: 0.7rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 1rem;
+}
+.video-description{
+    font-size: 0.9rem;
+    white-space: pre-line;
+}

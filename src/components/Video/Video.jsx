@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import "./Video.css";
 import numeral from "numeral";
 import moment from "moment";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 import request from "../../api.jsx";
 const Video = ({ video }) => {
@@ -72,12 +73,18 @@ const Video = ({ video }) => {
   return (
     <div className="video" key={channelId}>
       <div className="video-top">
-        <img src={url} alt="" />
-        <span>{_duration}</span>
+        {/* <img src={url} alt="" /> */}
+        <LazyLoadImage className="thumbnail" src={url} effect="blur" />
+        <span className="__duration">{_duration}</span>
       </div>
       <div className="video-details">
         <div>
-          <img className="video-channel-img" src={channelicon?.url} alt="" />
+          {/* <img className="video-channel-img" src={channelicon?.url} alt="" /> */}
+          <LazyLoadImage
+            className="video-channel-img"
+            src={channelicon?.url}
+            effect="blur"
+          />
         </div>
         <div className="video-desc">
           <div className="video-title">{title}</div>

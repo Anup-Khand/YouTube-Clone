@@ -1,10 +1,12 @@
 import "./App.css";
 import { useState } from "react";
-import Genre from "./components/Genre/Genre";
+// import Genre from "./components/Genre/Genre";
 import Navbar from "./components/Navbar/Navbar";
 import Sidbar from "./components/Sidebar/Sidbar";
-import VideoContainer from "./components/VideoContainer/VideoContainer";
+// import VideoContainer from "./components/VideoContainer/VideoContainer";
 import { Routes, Route } from "react-router-dom";
+import { WatchScreen } from "./components/WatchScreen/WatchScreen";
+import HomeScreen from "./pages/HomeScreen/HomeScreen";
 function App() {
   const [istoggle, setIstoggle] = useState(false);
 
@@ -19,17 +21,15 @@ function App() {
           <Sidbar isToggle={istoggle} />
         </div>
 
-        <div
-          className={
-            istoggle ? "VideoContainerWrapper1" : "VideoContainerWrapper"
-          }
-        >
-          <Genre />
-
+        <div className={istoggle?"homescreen1":"homescreen"}>
           <Routes>
-            <Route path="/" element={<VideoContainer />} exaxt index />
-            <Route path="/search" element={<h1>Search Result</h1>} />
-            <Route/>
+            <Route
+              path="/"
+              element={<HomeScreen />}
+              exact
+              index
+            />
+            <Route path="/watchscreen/:id" element={<WatchScreen />} />
           </Routes>
         </div>
       </div>
