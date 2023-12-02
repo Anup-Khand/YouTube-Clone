@@ -2,17 +2,20 @@
   height: 4rem;
   display: flex;
   align-items: center;
-  width: 75%;
+  width: 78%;
   border-radius: 999px;
   width: 100%;
+   margin-right: 10%;
 }
 .Genre-detail {
-  z-index: 999;
+ 
+  margin-left: 2rem;
+  z-index: 50;
   background-color: #0f0f0f;
   padding: 2rem 0.2rem;
   overflow-x: scroll;
   position: fixed;
-  width: 79%;
+  width: 75%;
   &::-webkit-scrollbar {
     display: none;
   }

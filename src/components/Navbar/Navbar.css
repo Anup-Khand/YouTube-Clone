@@ -8,13 +8,13 @@
 .container {
   display: flex;
   align-items: center;
-  margin-bottom: 0.8%;
+  margin-bottom: 0.3%;
   color: var(--text-color);
   width: 100%;
   height: 56px;
 }
 .navbar-container {
-  z-index: 2;
+  z-index: 90;
   position: fixed;
   background-color: var(--background-color);
   width: 100%;
@@ -167,6 +167,23 @@ form > .search-button {
     background-color: var(--hover-color);
   }
 }
+.account-img{
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+}
+
+.Account{
+  position: relative;
+}
+.account-form{
+  transition: all 0.5s ease;
+  position: absolute;
+   z-index: 999;
+  top:140%;
+  right: 25%;
+}
+
 /*Responsive*/
 
 @media only screen and (max-width: 775px) {
@@ -198,4 +215,5 @@ form > .search-button {
  form> .search-button {
     padding: 4px 8px;
   }
+
 }

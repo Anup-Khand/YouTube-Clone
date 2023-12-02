@@ -1,0 +1,111 @@
+.Horizontal-video {
+  display: flex;
+  width: 100%;
+  margin: 2%;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid white;
+
+  .channel-thumbnail {
+    position: relative;
+    cursor: pointer;
+    margin-right: 2.5%;
+  }
+  .Horizontal-video-img {
+    border-radius: 1rem;
+  }
+  .Hvideo-title {
+    cursor: pointer;
+    margin-bottom: 1.5%;
+  }
+  .Hvideo-title1 {
+    cursor: pointer;
+    margin-bottom: 1.5%;
+    font-size: 2rem;
+  }
+  .Horizontal-video-details {
+    cursor: pointer;
+    width: 100%;
+    .Hvideo-title1 {
+      margin-left: 20%;
+    }
+  }
+  .Hvideo-view {
+    margin-bottom: 1%;
+  }
+  .Hvideo-duration {
+    position: absolute;
+    right: 5%;
+    background-color: #2a292992;
+    border-radius: 10px;
+    padding: 3px;
+    bottom: 5%;
+    font-weight: bolder;
+  }
+  .Hvideo-channel-name {
+    gap: 1rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2%;
+  }
+  .Hvideo-channel-img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+  }
+  .Horizontal-video-img1 {
+    border-radius: 50%;
+  }
+  .Channel-description {
+    cursor: pointer;
+    width: 70%;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .channel-count{
+    margin-top: 2%;
+    font-size: 1rem;
+    font-weight: bolder;
+  }
+}
+.Horizontal-video1{
+  padding: 8px;
+  /* background-color: red; */
+  display: flex;
+  gap: 5px;
+  .Horizontal-video-img{
+    width: 12rem;
+    height: 8rem;
+    border-radius: 10px;
+  }
+  .channel-thumbnail{
+    position: relative;
+  }
+  .Hvideo-duration{
+    background-color: rgba(64, 58, 58, 0.164);
+    padding: 5px;
+    font-size: 0.5rem;
+    position: absolute;
+    right: 10%;
+    bottom: 10%;
+  }
+  .Hvideo-title{
+    font-size: 0.9rem;
+    cursor: pointer;
+    /* width: 70%; */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 2%;
+  }
+  .Hvideo-channel-img{
+    display: none;
+  }
+  .Hvideo-view{
+    font-size: 0.7rem;
+  }
+
+}

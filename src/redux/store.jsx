@@ -9,16 +9,21 @@ import {
   channelVideosReducer,
   selectedVideoReducer,
 } from "./reducer/video.reducer";
-
+import { channelDetailsReducer } from "./reducer/channel.reducer";
+import { commentListReducer } from "./reducer/comments.reducer";
+import { authReducer } from "./reducer/auth.reducer";
 // If you have other reducers, import them here
 
 const rootReducer = {
   homeVideos: homeVideosReducer,
   selectedVideo: selectedVideoReducer,
-  relatedVideos: relatedVideoReducer,
+  relatedVideo: relatedVideoReducer,
   searchedVideos: searchedVideosReducer,
   subscriptionsChannel: subscriptionsChannelReducer,
   channelVideos: channelVideosReducer,
+  channelDetails: channelDetailsReducer,
+  commentList: commentListReducer,
+  auth: authReducer,
   // Add other reducers here
 };
 

@@ -2,12 +2,14 @@ import { FaEye } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import "./Video.css";
+import { useNavigate } from "react-router-dom";
 import numeral from "numeral";
 import moment from "moment";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 import request from "../../api.jsx";
-const Video = ({ video }) => {
+
+const Video = ({ video, channelscreen }) => {
   const {
     id,
     snippet: {
@@ -21,12 +23,15 @@ const Video = ({ video }) => {
       contentDetails,
     },
   } = video;
+
   const _videoId = id?.videoId || contentDetails?.videoId || id;
   const [channelicon, setchannelicon] = useState(null);
   const [views, setviews] = useState(null);
   const [duration, setduration] = useState(null);
   const second = moment.duration(duration).asSeconds();
   const _duration = moment.utc(second * 1000).format("mm:ss");
+  const navigate = useNavigate();
+
   useEffect(() => {
     const get_video_detail = async () => {
       try {
@@ -49,8 +54,7 @@ const Video = ({ video }) => {
         console.error("Error fetching video details:", error);
       }
     };
-    // console.error(get_video_detail());
-    // Call the asynchronous function
+
     get_video_detail();
   }, [_videoId]);
 
@@ -70,22 +74,28 @@ const Video = ({ video }) => {
     // console.error(get_channel_icon());
   }, [channelId]);
 
+  const handleVideoClick = () => {
+    navigate(`/watchscreen/${_videoId}/${channelId}`);
+  };
+
   return (
-    <div className="video" key={channelId}>
-      <div className="video-top">
+    <div className="video" onClick={handleVideoClick}>
+      <div className={channelscreen ? "video-top1" : "video-top"}>
         {/* <img src={url} alt="" /> */}
         <LazyLoadImage className="thumbnail" src={url} effect="blur" />
         <span className="__duration">{_duration}</span>
       </div>
       <div className="video-details">
-        <div>
-          {/* <img className="video-channel-img" src={channelicon?.url} alt="" /> */}
-          <LazyLoadImage
-            className="video-channel-img"
-            src={channelicon?.url}
-            effect="blur"
-          />
-        </div>
+        {!channelscreen && (
+          <div>
+            {/* <img className="video-channel-img" src={channelicon?.url} alt="" /> */}
+            <LazyLoadImage
+              className="video-channel-img"
+              src={channelicon?.url}
+              effect="blur"
+            />
+          </div>
+        )}
         <div className="video-desc">
           <div className="video-title">{title}</div>
           <div className="video-channel">
@@ -119,6 +129,7 @@ Video.propTypes = {
       contentDetails: PropTypes.object.isRequired,
     }).isRequired,
   }).isRequired,
+  channelscreen: PropTypes.bool.isRequired,
 };
 
 export default Video;

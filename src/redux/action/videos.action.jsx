@@ -1,5 +1,5 @@
 import {
-  CHANNEL_DETAILS_FAIL,
+  CHANNEL_VIDEOS_FAIL,
   CHANNEL_VIDEOS_REQUEST,
   CHANNEL_VIDEOS_SUCCESS,
   HOME_VIDEOS_FAIL,
@@ -117,14 +117,21 @@ export const getRelatedVideos = (id) => async (dispatch) => {
       type: RELATED_VIDEO_REQUEST,
     });
 
-    const { data } = await request("/search", {
+    const { data:{items} } = await request("/channels", {
       params: {
-        part: "snippet",
-        relatedToVideoId: id,
-        maxResults: 15,
-        type: "video",
+        part: "contentDetails",
+        id: id,
       },
     });
+     const uploadPlaylistId = items[0].contentDetails.relatedPlaylists.uploads;
+     // 2. get the videos using the id
+     const { data } = await request("/playlistItems", {
+       params: {
+         part: "snippet,contentDetails",
+         playlistId: uploadPlaylistId,
+         maxResults: 15,
+       },
+     });
     dispatch({
       type: RELATED_VIDEO_SUCCESS,
       payload: data.items,
@@ -206,9 +213,10 @@ export const getVideosByChannel = (id) => async (dispatch) => {
     } = await request("/channels", {
       params: {
         part: "contentDetails",
-        id: id,
+        id:id,
       },
     });
+
     const uploadPlaylistId = items[0].contentDetails.relatedPlaylists.uploads;
     // 2. get the videos using the id
     const { data } = await request("/playlistItems", {
@@ -226,7 +234,7 @@ export const getVideosByChannel = (id) => async (dispatch) => {
   } catch (error) {
     console.log(error.response.data.message);
     dispatch({
-      type: CHANNEL_DETAILS_FAIL,
+      type: CHANNEL_VIDEOS_FAIL,
       payload: error.response.data,
     });
   }

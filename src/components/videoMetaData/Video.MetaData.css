@@ -6,6 +6,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 1.5%;
+    text-overflow: ellipsis;
 }
 .metadata-details{
     width: 100%;
@@ -44,6 +45,28 @@
     border-radius: 1rem;
 }
 .video-description{
+    
     font-size: 0.9rem;
     white-space: pre-line;
+}
+.ShowMoreText{
+    cursor: pointer;
+}
+.metadata-description{
+    border-radius: 1rem;
+    padding: 10px;
+    background-color:rgba(45, 40, 40, 0.467)
+}
+.meta-channel-views{
+    margin-bottom: 2%;
+}
+.video-button{
+    font-size: 1.2rem;
+    background-color: rgb(55, 51, 51);
+    border-radius: 10px;
+    padding: 10px;
+}
+.video-button>span:first-child{
+    padding-right: 10px;
+    border-right: 1px solid wheat;
 }

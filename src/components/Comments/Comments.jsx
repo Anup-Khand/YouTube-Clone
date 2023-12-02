@@ -1,28 +1,66 @@
-import Comment from "../comment/comment";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import "./Comments.css";
-const Comments = () => {
-  const handlecomment = () => {};
+import {
+  addComment,
+  getCommentsOfVideoById,
+} from "../../redux/action/comments.action";
+import PropTypes from "prop-types";
+import SingleComment from "../SingleComment/SingleComment";
+
+const Comments = ({ videoId, totalComments }) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCommentsOfVideoById(videoId));
+  }, [videoId, dispatch]);
+
+  const comments = useSelector((state) => state.commentList.comments);
+  const { photoURL }  = useSelector((state) => state.auth?.user || {});
+
+  const [text, setText] = useState("");
+
+  const _comments =( comments || [])?.map(
+    (comment) => comment.snippet?.topLevelComment?.snippet
+  );
+
+  const handleComment = (e) => {
+    e.preventDefault();
+    if (text.length === 0) {
+      return;
+    }
+
+    dispatch(addComment(videoId, text));
+    setText("");
+  };
+
   return (
     <div className="comments">
-      <p>123 Comments</p>
+      <p className="no-of-comments">{totalComments} Comments</p>
       <div className="comment-contain">
-        <img src="../../assets/img.jpg" alt="" />
-        <form onSubmit={handlecomment} className="comment-section" action="">
+        <img className="comment-user-img" src={photoURL} alt="" />
+        <form onSubmit={handleComment} className="comment-section" action="">
           <input
             type="text"
             className="comment-input"
-            placeholder="write a comment"
+            value={text}
+            placeholder="write a comment..."
+            onChange={(e) => setText(e.target.value)}
           />
           <button className="comment-btn">Comment</button>
         </form>
       </div>
-      <div className="comment-list">
-        {[...Array(10)].map((i) => (
-          <Comment key={i} />
+      <div className="comment-List">
+        {_comments.map((commentdata, i) => (
+          <SingleComment comment={commentdata} key={i}/>
         ))}
       </div>
     </div>
   );
+};
+Comments.propTypes = {
+  videoId: PropTypes.string.isRequired,
+  totalComments: PropTypes.string.isRequired,
 };
 
 export default Comments;

@@ -1,0 +1,33 @@
+.sub-video {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
+}
+.Header {
+  padding: 1rem;
+  margin-bottom: 2%;
+  display: flex;
+}
+.Header-img {
+  border-radius: 50%;
+}
+.Header-details {
+  margin-left: 2%;
+}
+.header-title {
+  margin-bottom: 2%;
+  font-size: 2rem;
+}
+.extra-detail {
+  margin-bottom: 2%;
+}
+.header-btn {
+  margin-top: 2%;
+  padding: 10px;
+  border: none;
+  border-radius: 3%;
+}
