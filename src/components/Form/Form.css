@@ -13,6 +13,11 @@
   background-size: 200% 100%;
   animation: gradient 5s ease infinite;
 }
+.signin-img{
+  width: 2rem;
+  height: 2rem;
+  margin-right: 2%;
+}
 
 @keyframes gradient {
   0% {
@@ -29,6 +34,10 @@
 }
 
 .form-submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   color: #717171;
   font-weight: 600;
   width: 100%;

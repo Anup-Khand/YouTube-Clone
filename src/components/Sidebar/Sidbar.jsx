@@ -101,7 +101,7 @@ const Sidbar = ({ isToggle }) => {
         ))}
       </div>
       <hr />
-      <div className="menu-item">
+      <div className={!isToggle ? "menu-item" : "disable"}>
         <p className="menu-item-title">Explore</p>
         {Listitem1.map((item, i) => (
           <span
@@ -123,8 +123,8 @@ const Sidbar = ({ isToggle }) => {
           </span>
         ))}
       </div>
-      <hr />
-      <div className="menu-item">
+      <hr className={!isToggle ? "" : "disable"} />
+      <div className={!isToggle ? "menu-item" : "disable"}>
         <p className="menu-item-title">You</p>
         {Listitem2.map((item, i) => (
           <NavLink
@@ -138,7 +138,7 @@ const Sidbar = ({ isToggle }) => {
           </NavLink>
         ))}
       </div>
-      <hr />
+      <hr className={!isToggle ? "" : "disable"} />
       <button
         onClick={handleLogOut}
         className={isToggle ? "sidebar-btn1" : "sidebar-btn"}

@@ -50,7 +50,7 @@ const VideoMetaData = ({ video, videoId }) => {
             <div className="meta-channel-name">{channelTitle}</div>
             <span className="channel-subscriber">
               {numeral(channelStatistics?.subscriberCount).format("0.a")}
-              Subscribers
+              <span> Subscribers</span>
             </span>
           </div>
           <div className="subscribe">

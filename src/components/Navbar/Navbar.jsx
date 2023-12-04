@@ -24,7 +24,7 @@ const Navbar = ({ onToggle }) => {
   const [IsOpen, setIsOpen] = useState(false);
   const [input, setinput] = useState("");
   const [FormOpen, setFormOpen] = useState(false);
-
+const[account,setaccount]=useState(false)
 
 
   const handletoggle = () => {
@@ -32,17 +32,21 @@ const Navbar = ({ onToggle }) => {
     onToggle();
   };
 
-  // const { accessToken } = useSelector((state) => state.auth);
-  const { accessToken, photoURL } = useSelector(
+  const { accessToken } = useSelector((state) => state.auth);
+  const { photoURL } = useSelector(
     (state) => state.auth?.user || {}
   );
-
+console.log(accessToken)
   useEffect(() => {
     if (accessToken) {
       setIsOpen(false);
+      setaccount(true)
+    }
+    else {
+      setaccount(false)
     }
   }, [accessToken]);
-
+console.log(account)
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -53,7 +57,7 @@ const Navbar = ({ onToggle }) => {
   };
   return (
     <div className="container">
-      <nav  className="navbar-container">
+      <nav className="navbar-container">
         <div className="navbar-left">
           <button onClick={handletoggle} className="hamburger-menu">
             <MenuIcon />
@@ -93,13 +97,14 @@ const Navbar = ({ onToggle }) => {
           <button>
             <NotificationsNoneIcon sx={{ fontSize: 25 }} />
           </button>
-          {
-            accessToken ? (
+          {account ? (
             <img className="account-img" src={photoURL} alt="" />
           ) : (
             <button className="Account" onClick={handleForm}>
               <AccountCircleIcon fontSize="large" />
-              <div className="account-form">{FormOpen && <Form />}</div>
+              <div className={`account-form ${account? "disabled" : ""}`}>
+                {FormOpen && <Form />}
+              </div>
             </button>
           )}
         </div>

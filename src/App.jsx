@@ -29,7 +29,6 @@ function App() {
   
   return (
     <>
-      {/* <div className="form">{IsOpen && <Form />}</div> */}
       <div style={{ width: "100%" }}>
         <Navbar onToggle={handleToggle} />
         <div className="wrapper">

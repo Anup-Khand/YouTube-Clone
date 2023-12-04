@@ -182,6 +182,10 @@ form > .search-button {
    z-index: 999;
   top:140%;
   right: 25%;
+} .disabled {
+  display: none;
+  pointer-events: none; /* Disable user interactions */
+  opacity: 0.5; /* Apply some visual indication of disabled state */
 }
 
 /*Responsive*/

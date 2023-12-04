@@ -7,6 +7,7 @@ import {
 } from "../../redux/action/comments.action";
 import PropTypes from "prop-types";
 import SingleComment from "../SingleComment/SingleComment";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const Comments = ({ videoId, totalComments }) => {
   const dispatch = useDispatch();
@@ -16,7 +17,8 @@ const Comments = ({ videoId, totalComments }) => {
   }, [videoId, dispatch]);
 
   const comments = useSelector((state) => state.commentList.comments);
-  const { photoURL }  = useSelector((state) => state.auth?.user || {});
+    const { accessToken } = useSelector((state) => state.auth);
+  const { photoURL}  = useSelector((state) => state.auth?.user || {});
 
   const [text, setText] = useState("");
 
@@ -38,7 +40,12 @@ const Comments = ({ videoId, totalComments }) => {
     <div className="comments">
       <p className="no-of-comments">{totalComments} Comments</p>
       <div className="comment-contain">
-        <img className="comment-user-img" src={photoURL} alt="" />
+        {accessToken ? (
+          <img className="comment-user-img" src={photoURL} alt="" />
+        ) : (
+          <AccountCircleIcon sx={{ fontSize: 50 }} />
+        )}
+
         <form onSubmit={handleComment} className="comment-section" action="">
           <input
             type="text"
@@ -52,7 +59,7 @@ const Comments = ({ videoId, totalComments }) => {
       </div>
       <div className="comment-List">
         {_comments.map((commentdata, i) => (
-          <SingleComment comment={commentdata} key={i}/>
+          <SingleComment comment={commentdata} key={i} />
         ))}
       </div>
     </div>
