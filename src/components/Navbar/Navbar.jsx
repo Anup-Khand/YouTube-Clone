@@ -20,6 +20,7 @@ const Navbar = ({ onToggle }) => {
   };
   const handleBlur = () => {
     setIsFocused(!isFocused);
+    setinput("")
   };
   const [IsOpen, setIsOpen] = useState(false);
   const [input, setinput] = useState("");
