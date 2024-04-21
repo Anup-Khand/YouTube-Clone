@@ -9,7 +9,7 @@ import { getAuth } from "firebase/auth";
 //   appId: "1:584952456554:web:c6930a4148c2debd7d7113",
 // };
 const firebaseConfig = {
-  apiKey: "AIzaSyAwCpYLZuNAu8rmoZFl_iHndfpq6oZH7Vw",
+  apiKey: "",
   authDomain: "ytcc-56c81.firebaseapp.com",
   projectId: "ytcc-56c81",
   storageBucket: "ytcc-56c81.appspot.com",
